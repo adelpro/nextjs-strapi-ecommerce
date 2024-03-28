@@ -15,17 +15,17 @@ export default function Header() {
           <nav aria-label="Global" className="hidden md:block">
             <ul className="flex items-center gap-6 text-sm">
               <li className="transform ease-in-out delay-150 hover:-translate-y-1 duration-300">
-                <Link className="text-xl text-gray-500" href="#">
+                <Link className="text-xl text-gray-600" href="#">
                   About
                 </Link>
               </li>
               <li className="transform ease-in-out delay-150 hover:-translate-y-1 duration-300">
-                <Link className="text-xl text-gray-500" href="#">
+                <Link className="text-xl text-gray-600" href="#">
                   Contact-us
                 </Link>
               </li>
               <li className="transform ease-in-out delay-150 hover:-translate-y-1 duration-300">
-                <Link className="text-xl font-medium text-gray-500" href="#">
+                <Link className="text-xl font-medium text-gray-600" href="#">
                   Support-us
                 </Link>
               </li>
@@ -35,14 +35,14 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <div className="sm:flex sm:gap-4">
               <a
-                className="block rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:opacity-75"
+                className="block rounded-md bg-primary-600 w-32 px-5 py-2.5 text-center text-sm font-medium text-white transition hover:bg-primary-800"
                 href="#"
               >
                 Login
               </a>
 
               <a
-                className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary transition hover:text-primary/75 sm:block"
+                className="hidden rounded-md bg-gray-100 w-32 px-5 py-2.5 text-center text-sm font-medium text-primary-600 transition hover:text-primary-800 sm:block"
                 href="#"
               >
                 Register
