@@ -32,7 +32,7 @@
     "price": {
       "type": "decimal"
     },
-    "Categories": {
+    "Category": {
       "type": "enumeration",
       "enum": [
         "Pump",
