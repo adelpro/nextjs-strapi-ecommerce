@@ -10,10 +10,12 @@ type props = {
 };
 export default function ProductList({ products }: props) {
   return (
-    <div>
+    <ul>
       {products.data.map((product) => (
-        <Product key={product.id} product={product} />
+        <li key={product.id}>
+          <Product attributes={product?.attributes} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
