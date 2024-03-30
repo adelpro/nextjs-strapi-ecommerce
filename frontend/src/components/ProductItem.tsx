@@ -13,24 +13,25 @@ export default function ProductItem({ attributes }: props) {
   return (
     <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mx-auto p-4">
       <h2 className="text-2xl font-semibold">{attributes.title}</h2>
-      <Image
-        src={ImageUrl || imagePlaceHolder}
-        className="rounded-lg mx-auto"
-        alt={attributes?.title}
-        width={450}
-        height={300}
-      />
-      <p className="mt-2 text-gray-600">
-        {JSON.stringify(attributes.description)}
-      </p>
-      <div className="flex justify-between items-center mt-2">
-        <p className="text-gray-600">
-          <strong>Category: </strong>
+
+      <div className="relative items-center shadow">
+        <Image
+          src={ImageUrl || imagePlaceHolder}
+          className="rounded-lg mx-auto h-64 w-full object-cover"
+          aria-label={attributes?.title}
+          alt={attributes?.title}
+          width={450}
+          height={300}
+        />
+        <span className="absolute bg-primary-600 text-white text-xs font-bold px-5 py-2 rounded-md bottom-0 right-0 mb-2 mr-2">
+          ${attributes.price}
+        </span>
+        <span
+          className="absolute text-slate-400 text-xl font-bold p-1 rounded-md bottom-0 left-0 mb-2 ml-2"
+          area-label={`Category: ${attributes.Category}`}
+        >
           {attributes.Category}
-        </p>
-        <p className="text-gray-600">
-          <strong>Price: </strong>${attributes.price}
-        </p>
+        </span>
       </div>
     </div>
   );
