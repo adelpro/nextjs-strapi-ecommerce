@@ -8,7 +8,7 @@ const inter = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "E-commerce",
-  description: "Ecommerce platform with nextjs and strapi",
+  description: "E-commerce platform with nextjs and strapi",
 };
 
 export default function RootLayout({
