@@ -1,6 +1,13 @@
 export interface PRODUCT_ATTRIBUTES {
   title: string;
   description: string;
+  banner: {
+    data: {
+      attributes: {
+        url: string;
+      };
+    };
+  };
   price: number;
   createdAt: Date;
   updatedAt: Date;

@@ -1,6 +1,6 @@
 import { META, PRODUCT } from "@/utils/types";
 import React from "react";
-import Product from "./Product";
+import ProductItem from "./ProductItem";
 
 type props = {
   products: {
@@ -10,12 +10,10 @@ type props = {
 };
 export default function ProductList({ products }: props) {
   return (
-    <ul>
+    <div className="flex flex-wrap">
       {products.data.map((product) => (
-        <li key={product.id}>
-          <Product attributes={product?.attributes} />
-        </li>
+        <ProductItem attributes={product?.attributes} key={product.id} />
       ))}
-    </ul>
+    </div>
   );
 }

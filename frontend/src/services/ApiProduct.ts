@@ -6,7 +6,7 @@ const getLatestProducts = async (): Promise<{
   meta: META;
 }> => {
   console.log("Fetching products...");
-  return ApiClient.get("/products").then((res) => {
+  return ApiClient.get("/products?populate=*").then((res) => {
     const data = res.data.data;
     const meta = res.data.meta;
 
