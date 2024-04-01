@@ -12,7 +12,11 @@ export default function ProductList({ products }: props) {
   return (
     <div className="flex flex-wrap">
       {products.data.map((product) => (
-        <ProductItem attributes={product?.attributes} key={product.id} />
+        <ProductItem
+          attributes={product?.attributes}
+          key={product.id}
+          id={product.id}
+        />
       ))}
     </div>
   );

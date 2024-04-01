@@ -1,11 +1,10 @@
-import { META, PRODUCT } from "@/utils/types";
 import ApiClient from "./ApiClient";
+import { META, PRODUCT } from "@/utils/types";
 
 const getLatestProducts = async (): Promise<{
   data: PRODUCT[];
   meta: META;
 }> => {
-  console.log("Fetching products...");
   return ApiClient.get("/products?populate=*").then((res) => {
     const data = res.data.data;
     const meta = res.data.meta;
@@ -13,6 +12,16 @@ const getLatestProducts = async (): Promise<{
     return { data, meta };
   });
 };
+const getLatestProductById = async (
+  id: string
+): Promise<{
+  data: PRODUCT;
+}> => {
+  return ApiClient.get(`/products/${id}?populate=*`).then((res) => {
+    const data = res.data.data;
+    return { data };
+  });
+};
 
-const ApiProduct = { getLatestProducts };
+const ApiProduct = { getLatestProducts, getLatestProductById };
 export default ApiProduct;
