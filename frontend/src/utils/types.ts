@@ -1,6 +1,10 @@
 export interface PRODUCT_ATTRIBUTES {
   title: string;
-  description: string;
+  description: {
+    children: {
+      text: string;
+    }[];
+  }[];
   banner: {
     data: {
       attributes: {
