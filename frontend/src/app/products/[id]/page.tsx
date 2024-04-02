@@ -7,11 +7,11 @@ type props = {
 };
 export default async function Product({ params }: props) {
   const { id } = params;
-  const product = await ApiProduct.getLatestProductById(id);
+  const product = await ApiProduct.getProductById(id);
   return (
     <>
       <BreadCrumb />
-     <ProductDetail data={product.data} />
+      <ProductDetail product={product} />
     </>
   );
 }

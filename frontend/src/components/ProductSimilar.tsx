@@ -3,15 +3,13 @@ import React from "react";
 import ProductItem from "./ProductItem";
 
 type props = {
-  data: {
-    products: PRODUCT[];
-    meta: META;
-  };
+  products: PRODUCT[];
 };
-export default function ProductList({ data }: props) {
+
+export default function ProductSimilar({ products }: props) {
   return (
-    <div className="m-4 flex flex-wrap">
-      {data?.products.map((product) => (
+    <div className="m-4 flex flex-wrap items-center justify-start">
+      {products.map((product) => (
         <ProductItem
           attributes={product?.attributes}
           key={product.id}

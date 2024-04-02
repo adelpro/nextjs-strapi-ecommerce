@@ -7,10 +7,10 @@ export default function BreadCrumb() {
      * This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
      */
 
-    <nav aria-label="Breadcrumb" className="w-full py-2 my-2">
+    <nav aria-label="Breadcrumb" className="my-2 w-full py-2">
       <ol className="flex items-center gap-1 text-sm text-gray-600">
         <li>
-          <a href="#" className="block transition hover:text-gray-700">
+          <a href="/" className="block transition hover:text-gray-700">
             <span className="sr-only"> Home </span>
 
             <svg

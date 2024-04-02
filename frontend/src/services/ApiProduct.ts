@@ -2,26 +2,40 @@ import ApiClient from "./ApiClient";
 import { META, PRODUCT } from "@/utils/types";
 
 const getLatestProducts = async (): Promise<{
-  data: PRODUCT[];
+  products: PRODUCT[];
   meta: META;
 }> => {
-  return ApiClient.get("/products?populate=*").then((res) => {
-    const data = res.data.data;
+  const data = await ApiClient.get("/products?populate=*").then((res) => {
+    const products = res.data.data;
     const meta = res.data.meta;
-
-    return { data, meta };
+    return { products, meta };
   });
+  return data;
 };
-const getLatestProductById = async (
-  id: string
-): Promise<{
-  data: PRODUCT;
-}> => {
-  return ApiClient.get(`/products/${id}?populate=*`).then((res) => {
-    const data = res.data.data;
-    return { data };
+const getLatestProductsByCategory = async (
+  category: string,
+): Promise<PRODUCT[]> => {
+  const data = await ApiClient.get(
+    `/products?filters[Category][$eq]=${category}&populate=*`,
+  ).then((res) => {
+    return res.data.data;
   });
+
+  return data;
+};
+const getProductById = async (id: string): Promise<PRODUCT> => {
+  const product = await ApiClient.get(`/products/${id}?populate=*`).then(
+    (res) => {
+      const product = res.data.data;
+      return product;
+    },
+  );
+  return product;
 };
 
-const ApiProduct = { getLatestProducts, getLatestProductById };
+const ApiProduct = {
+  getLatestProducts,
+  getLatestProductsByCategory,
+  getProductById,
+};
 export default ApiProduct;
