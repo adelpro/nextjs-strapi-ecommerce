@@ -10,7 +10,7 @@ export default async function Product({ params }: props) {
   const product = await ApiProduct.getProductById(id);
   return (
     <>
-      <BreadCrumb />
+      <BreadCrumb params={params} />
       <ProductDetail product={product} />
     </>
   );

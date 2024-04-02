@@ -1,21 +1,27 @@
+import ApiProduct from "@/services/ApiProduct";
 import React from "react";
 
-export default function BreadCrumb() {
+type props = {
+  params: any;
+};
+export default async function BreadCrumb({ params }: props) {
+  const { id } = params;
+  const product = await ApiProduct.getProductById(id);
   return (
     /*
      * Heads up! 👋
      * This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
      */
 
-    <nav aria-label="Breadcrumb" className="my-2 w-full py-2">
+    <nav aria-label="Breadcrumb" className="my-2 ml-5 w-full py-2">
       <ol className="flex items-center gap-1 text-sm text-gray-600">
         <li>
-          <a href="/" className="block transition hover:text-gray-700">
+          <a href="/" className="block text-4xl transition hover:text-gray-700">
             <span className="sr-only"> Home </span>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -30,10 +36,10 @@ export default function BreadCrumb() {
           </a>
         </li>
 
-        <li className="rtl:rotate-180">
+        <li className="text-4xl rtl:rotate-180">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
+            className="h-6 w-6"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -46,11 +52,12 @@ export default function BreadCrumb() {
         </li>
 
         <li>
-          <a href="#" className="block transition hover:text-gray-700">
-            Product
+          <a href="#" className="block text-2xl transition hover:text-gray-700">
+            {product?.attributes?.title}
           </a>
         </li>
       </ol>
+      <hr className="mb-3 mr-10" />
     </nav>
   );
 }

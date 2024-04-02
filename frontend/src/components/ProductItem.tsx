@@ -10,20 +10,14 @@ type props = {
 };
 export default function ProductItem({ attributes, id }: props) {
   const ImageUrl = attributes?.banner?.data?.attributes?.url;
+
   return (
     <div className="mx-auto w-full p-4 hover:rounded hover:border hover:border-primary-600 hover:shadow sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5">
       <Link href={`/products/${id}`}>
-        <h2
-          className="line-clamp-1 text-2xl font-semibold"
-          title={attributes.title}
-        >
-          {attributes.title}
-        </h2>
-
         <div className="relative items-center shadow">
           <Image
             src={ImageUrl || imagePlaceHolder}
-            className="mx-auto h-48 w-full rounded-lg object-cover object-center"
+            className="mx-auto h-48 w-full rounded-t-md object-cover object-center"
             aria-label={attributes?.title}
             alt={attributes?.title}
             width={450}
@@ -39,6 +33,12 @@ export default function ProductItem({ attributes, id }: props) {
             </span>
           </div>
         </div>
+        <h2
+          className="ml-2 line-clamp-1 text-2xl font-semibold text-gray-500"
+          title={attributes.title}
+        >
+          {attributes.title}
+        </h2>
       </Link>
     </div>
   );
